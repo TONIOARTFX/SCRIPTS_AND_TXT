@@ -1,0 +1,4 @@
+Copie Et Remove Type ( ex .svn ):
+
+cp -r source destination
+find destination -iname .svn |xargs rm -rf

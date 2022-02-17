@@ -1,0 +1,40 @@
+FABRICATION GIF DEPUIS JPG
+
+
+A FAIRE :
+
+Passe A ( pour 4 image sec & 1920 w )
+
+ffmpeg -framerate 4 -pattern_type glob -i '*.jpg' -vf scale=1920:-1 -c:v prores_ks -profile:v 3 OUT.mov
+
+Passe B - Adobe media encoder pour mp4
+
+Passe C ( creation Gif - 960 Large + Palette reduite )
+
+ffmpeg -i *.mp4 -filter_complex "[0:v] fps=12,scale=w=960:h=-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" ETAPE_3_LE_DEBALLAGE.gif
+
+Newsletter ( h auteur) 
+ffmpeg -i *.mp4 -filter_complex "[0:v] fps=6,scale=w=-1:h=186,split [a][b];[a] palettegen [p];[b][p] paletteuse" TEST.gif
+
+_______________________________________________________________________________________________________________________________________________
+
+210204 ( 4 moins rapide - 5 plus rapide )
+Installer FFMPEG ( https://ffmpeg.org ) dans /usr/local/bin
+
+Ouvrir un Terminal
+Taper cd puis espace, puis glisser le dossier avec les Jpeg en Srvb
+
+Faire un .MOV en prores ( en 1080 pixel de Haut, en 4 images par seconde, plus vite 5, plus lent 3 )
+ffmpeg -framerate 4 -pattern_type glob -i '*.jpg' -vf scale=-1:1080 -c:v prores_ks -profile:v 3 OUT.mov
+
+Faire un .GIF depuis le prores ( toujours en 1080 de haut )
+ffmpeg -i *.mov -filter_complex "[0:v] fps=12,scale=w=-1:h=1080,split [a][b];[a] palettegen [p];[b][p] paletteuse" OUT.gif
+
+Faire un .MP4 depuis le prores en pétant pas la chromie à Mort ( Sans Audio, 5Mb/s avec tout forcé en REC709 )
+ffmpeg -i *.mov -map v:0 -c:v libx264 -preset veryslow -profile:v high -level 5.1 -b:v 5000k -pix_fmt yuv420p -sws_flags bicubic -vf scale=out_color_matrix=bt709 -color_primaries bt709 -color_trc bt709 -colorspace bt709  -y OUT.mp4
+
+______________________________________________________________________________________________________________________________________________
+
+& le Gif en une seule passe :
+
+ffmpeg -framerate 4 -pattern_type glob -i '*.jpg' -filter_complex "[0:v] scale=w=-1:h=1080,split [a][b];[a] palettegen [p];[b][p] paletteuse" OUT.gif

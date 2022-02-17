@@ -1,0 +1,36 @@
+MANIP Excel avec une colonne : mv / * / N° / * / Chemin du terminal
+Un copier coller vers un fichier text
+Une commande de recherche remplacer mv * par mv espace etoile tout court
+Une command esp etoile espa /Vo pour la deux etoile
+un copier / coller ds le terminal après s'être mis dans le repertoire source 
+
+
+mv *932420HE0R* /CHEMIN...../TRIE
+mv *935140H60F* /CHEMIN...../TRIE
+mv *937560HA90* /CHEMIN...../TRIE
+mv *935150H790* /CHEMIN...../TRIE
+mv *932400HE0D* /CHEMIN...../TRIE
+mv *935200H390* /CHEMIN...../TRIE
+mv *932520HFPL* /CHEMIN...../TRIE
+mv *935040H601* /CHEMIN...../TRIE
+.
+.
+.
+.
+.
+mv *937585HA90* /CHEMIN...../TRIE
+
+
+Pour les Copies de un fichier vers multiple, idem sur le principe mais
+La source doit être dupliquée vers le bas par rapport aux copies a faire dans le fichier Excel ( collage special )
+
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075241CKAA_SKU_worn_6.tif
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075242CCAA_SKU_worn_6.tif
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075240CKAC_SKU_worn_6.tif
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075243CCAC_SKU_worn_6.tif
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075241CKAE_SKU_worn_6.tif
+cp /CHEMIN...../075240CKAA_worn_6.tif /CHEMIN...../OK/075240CKAE_SKU_worn_6.tif
+cp /CHEMIN...../075287CKAD_worn_4.tif /CHEMIN...../OK/075245CCAB_SKU_worn_6.tif
+cp /CHEMIN...../075287CKAD_worn_4.tif /CHEMIN...../OK/075287CCAC_SKU_worn_6.tif
+cp /CHEMIN...../076236CKAG_worn_2.tif /CHEMIN...../OK/076236CKAF_SKU_worn_6.tif
+cp /CHEMIN...../076236CKAG_worn_2.tif /CHEMIN...../OK/076236CKAG_SKU_worn_6.tif

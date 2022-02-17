@@ -1,0 +1,11 @@
+ffmpeg -i *.mp3 -ss 00:00:20 -to 00:00:40 "H $i"
+
+Script
+
+
+#!/bin/bash
+
+for i in *.mp3 ; do
+ffmpeg -i "$i" -ss 00:00:00 -to 00:00:30 "H $i"
+sleep 3
+done

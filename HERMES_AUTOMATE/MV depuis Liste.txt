@@ -1,0 +1,6 @@
+Faire la liste avec Bracket
+Remplacer l'Extention jpg par tif
+mettre la LIST.txt dans le répertoire de tous les tif
+Balancer la Commande
+
+less 'LIST.txt' | while read -r; do mv "$REPLY" /CHEMIN/......./RESULTAT; done

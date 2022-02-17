@@ -1,0 +1,17 @@
+Depuis le REPERTOIRE SOURCE :
+
+find . -type d -exec mkdir -p /path/to/copy/directory/tree/{} \;
+
+A TENTER :
+
+cd target_dir && (cd source_dir; find . -type d ! -name .) | xargs -i mkdir -p "{}"
+
+En 2 Temps :
+
+Dans le répertoire d'origine / source:
+
+find . -type d -exec echo "'{}'" \; > dirs2.txt
+
+puis recréez-le dans le répertoire nouvellement créé:
+
+mkdir -p <../<SOURCEDIR>/dirs2.txt
