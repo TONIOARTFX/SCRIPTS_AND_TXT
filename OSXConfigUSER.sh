@@ -120,7 +120,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Use Colum view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, Nlsv
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, 'Nlsv'
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Show icons for hard drives, servers, and removable media on the desktop
