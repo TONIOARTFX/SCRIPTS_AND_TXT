@@ -34,7 +34,7 @@ echo "Volume mount complete"				# <- This echos the information between the spee
 
 echo "Starting syncing"						# <- This echos the information between the speech marks into the terminal window
 
-rysnc --archive --verbose --progress --delete --no-g -E $Source $Destination				# <- This syncs the files from "Source" to "Destination" with deleting
+rsync --archive --verbose --progress --delete --no-g -E $Source $Destination				# <- This syncs the files from "Source" to "Destination" with deleting
 
 if [$? = 0]									# <- This asks if the exit code of the sync is '0' (and so fine)
 
