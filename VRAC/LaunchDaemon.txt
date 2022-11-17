@@ -1,0 +1,119 @@
+LAUNCH DAEMON :
+
+/Bibliothèque/LaunchDaemons
+Démons système tiers
+/Bibliothèque/LaunchAgents
+Agents tiers applicables à tous les utilisateurs, par utilisateur
+~/Bibliothèque/LaunchAgents
+Agents tiers applicables uniquement à l’utilisateur connecté
+
+Structure :
+Label: Uniquely identifies a task to launch.
+Program: Defines the task to be executed.
+RunAtLoad: Specifies when the task should be run.
+
+Example :
+Label
+com.companyname.task
+Program
+/path/to/scripts/folder/script_name.sh
+RunAtLoad
+
+Full Example A :
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.example.app</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/bin/rsync_pathtoexe</string>
+            <string>--archive_argExample_orusejust_ProgramforAsimpleScriptalreadyWritten</string>
+        </array>
+	<key>RunAtLoad</key>
+	<true/>
+        <key>oubien_StartCalendarInterval</key>
+        <dict>
+            <key>Minute</key>
+            <integer>45</integer>
+            <key>Hour</key>
+            <integer>13</integer>
+            <key>Day</key>
+            <integer>7_Dimanche_Ou_PAs de jours = tous les jours</integer>
+        </dict>
+    </dict>
+</plist>
+
+Full Example B :
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.IDENTIFIER_HERE.SOMETHING</string>
+    <key>OnDemand</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>UserName</key>
+    <string>USERNAME HERE</string>
+    <key>Program</key>
+    <string>/PATH/TO/SCRIPT</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>Argument_1</string>
+        <string>Argument_2</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+</dict>
+</plist>
+
+Full Example CRON STYLE :
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+"http://www.apple.
+com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>  
+    <key>Label</key>
+    <string>com.apple.periodic-daily</string>
+    <key>ProgramArguments</key>
+    <array> 
+        <string>/usr/sbin/periodic</string>
+        <string>daily</string>
+    </array>
+    <key>LowPriorityIO</key>
+    <true/>
+    <key>Nice</key>
+    <integer>1</integer>
+    <key>StartCalendarInterval</key>
+    <dict>  
+        <key>Hour</key>
+        <integer>3</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+</dict>
+</plist>
+
+TERMINAL USAGE
+Disable a User daemon, to re-enable this, replace unload with load:
+$ launchctl unload ~/Library/LaunchAgents/example.plist
+To make this permanent edit that .plist file and change KEEP ALIVE and LAUNCH AT LOAD to FALSE. Then lock the file. This will prevent the app from running at all.
+
+$ sudo launchctl list
+All
+
+$ launchctl print gui/504
+Display the launch scripts that are currently loaded for user ID 504 (new syntax):
+
+A Good Idea for Local :
+$ mkdir ~/Library/Scripts
+
+$ cd ~/Library/LaunchAgents
+$ touch example.plist
+$ open -e example.plist
+
+Pour PLUS : https://www.launchd.info
