@@ -34,14 +34,15 @@ echo "Volume mount complete"				# <- This echos the information between the spee
 
 echo "Starting syncing"						# <- This echos the information between the speech marks into the terminal window
 
-rsync --archive --verbose --progress --delete --no-g -E $Source $Destination				# <- This syncs the files from "Source" to "Destination" with deleting
+rsync --archive --verbose --progress --delete --no-g -E $Source $Destination				# <- This syncs the files from "Source" to "Destination" with deleting ( rajouter / a la Source )
 
-# Pour deleter les fichiers temp osx ( A TESTER ) :
+# Pour deleter les fichiers temp osx ( OK) :
 # --exclude=.fseventsd/
 # --exclude=.Spotlight-V100/
 # --exclude=.Trashes/
 # --exclude=*/.DS_Store
 # --exclude=*/._.*
+# --exclude=.fseventsd/ --exclude=.Spotlight-V100/ --exclude=.Trashes/ --exclude=*/.DS_Store --exclude=*/._.*
 
 if [$? = 0]									# <- This asks if the exit code of the sync is '0' (and so fine)
 
