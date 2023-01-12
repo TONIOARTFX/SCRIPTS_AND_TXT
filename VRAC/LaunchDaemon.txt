@@ -126,3 +126,18 @@ Alternatively use the open(1) command to run the application:
 <string>-W</string>
 <string>/Users/johndoe/ApplicationTest.app</string>
 </array>
+<<<<<<< Updated upstream
+=======
+
+PLUS :
+
+For sake of example, let's say we're adding a launch agent for the user "johnny" whose service name is "com.appleseed.runthings".
+
+Make sure your filename ends in .plist, e.g. /Users/johnny/Library/LaunchAgents/com.appleseed.runthings.plist
+Check the syntax of the file: plutil /Users/johnny/Library/LaunchAgents/com.appleseed.runthings.plist
+chmod 755 dans le user le script
+Unload and reload your service:
+launchctl unload /Users/johnny/Library/LaunchAgents/com.appleseed.runthings.plist
+launchctl load /Users/johnny/Library/LaunchAgents/com.appleseed.runthings.plist
+Force load in case your job has been disabled: launchctl load -w /Users/johnny/Library/LaunchAgents/com.appleseed.runthings.plist
+>>>>>>> Stashed changes
